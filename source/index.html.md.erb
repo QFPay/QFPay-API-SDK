@@ -67,7 +67,7 @@ Hong Kong | https://test-openapi-hk.qfapi.com | https://openapi-hk.qfapi.com
 Japan |   | https://openapi-jp.qfapi.com
 Thailand | https://test-openapi-th.qfapi.com | https://openapi-th.qfapi.com 
 Dubai | https://test-openapi-db.qfapi.com | https://openapi-db.qfapi.com
-Singapore | https://test-openapi-sg.qfapi.com | https://openapi-sg.qfapi.com
+Singapore, Malaysia, Canada, Philippines | https://test-openapi-sg.qfapi.com | https://openapi-sg.qfapi.com
 Indonesia | https://test-openapi-id.qfapi.com | https://openapi-id.qfapi.com
 Europe | https://test-openapi-eur.qfapi.com | https://openapi-eur.qfapi.com
 
@@ -333,7 +333,8 @@ Code | Description
 800107 | Alipay Service Window H5 Payment (in Alipay WAP payments)
 800108 | Alipay Consumer Presented QR Code Payment (CPM) 
 800201 | WeChat Merchant Presented QR Code Payment (MPM) (Online Payment) (Overseas & HK Merchants) 
-800207 | WeChat JSAPI Payment - WeChat Official Account Payment (in Wechat App)(Overseas & HK Merchants)  
+800207 | WeChat JSAPI Payment - WeChat Official Account Payment (in Wechat App)(Overseas & HK Merchants)
+800212 | WeChat JSAPI Payment - WeChat Official Account Payment (in Wechat App)(CA Merchants)****
 800208 | WeChat Consumer Presented QR Code Payment (CPM) 
 800210 | WeChat in-APP Payment
 800213 | WeChat Mini-Program Payment 
@@ -390,11 +391,16 @@ Code | Description
 805612 | GoPay WAP Payment***
 
 **Notes:** <br> 
-*   1. Differently from Public Payment Parameters, <code>return_url</code> is a mandatory request parameter. <br>
-    2. <code>web_url</code> parameter in response contains the payment url. <br> 
-**  1. Transaction amount must be greater than 1 MYR. <br>
-    2. <code>qr_code</code> parameter in response contains the payment url. <br>
-*** Payment method does not support refunds.
+* (*)
+    1. Differently from Public Payment Parameters, <code>return_url</code> is a mandatory request parameter.
+    2. <code>web_url</code> parameter in response contains the payment url. 
+* (**)
+    1. Transaction amount must be greater than 1 MYR.
+    2. <code>qr_code</code> parameter in response contains the payment url.
+* (***) 
+    1.Payment method does not support refunds.
+* (****)
+    1. Please refer to [this](#alipay-online-payments) section for payment request and response. 
 
 ## Currencies
 
@@ -412,7 +418,9 @@ MMK | Myanmar Kyat
 MYR | Malaysian Ringgit 
 SGD | Singapore Dollar
 THB | Thai Baht
-USD | United States Dollar 
+USD | United States Dollar
+CAD | Canadian Dollar
+AUD | Australian Dollar 
 
 
 ## API Endpoint for Payments
@@ -3698,7 +3706,11 @@ Official account payments must be initiated from the WeChat in-app browser. They
 
 **JSAPI Payment Types**
 
-There are two different methods how JSAPI payments can be implemented.
+Note: Merchants in Canada, please refer to [this](#alipay-online-payments) section for payment request and response parameters with <code>pay_type</code> 800212. <br>
+
+There are two different methods how JSAPI payments can be implemented. 
+
+
 
 <br>
 
