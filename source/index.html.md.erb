@@ -390,17 +390,24 @@ Code | Description
 805601 | GoPay dynamic QRC Payment - Merchant Present Mode (MPM)***
 805612 | GoPay WAP Payment***
 
-**Notes:** <br> 
-* (*)
-    1. Differently from Public Payment Parameters, <code>return_url</code> is a mandatory request parameter.
-    2. <code>web_url</code> parameter in response contains the payment url. 
-* (**)
-    1. Transaction amount must be greater than 1 MYR.
-    2. <code>qr_code</code> parameter in response contains the payment url.
-* (***) 
-    1.Payment method does not support refunds.
-* (****)
-    1. Please refer to [this](#alipay-online-payments) section for payment request and response. 
+
+<aside class="warning">
+    Notes
+</aside>
+<aside class="notice">
+   <dl>
+  <dt>(*)</dt>
+  <dd>1. Differently from Public Payment Parameters, <code>return_url</code> is a mandatory request parameter.</dd>
+  <dd>2. <code>web_url</code> parameter in response contains the payment url.</dd>
+  <dt>(**)</dt>
+  <dd>1. Transaction amount must be greater than 1 MYR.</dd>
+  <dt>(***)</dt>
+  <dd>1.Payment method does not support refunds.</dd>
+  <dt>(****)</dt>
+  <dd>1. Please refer to [this](#alipay-online-payments) section for payment request and response.</dd>
+</dl>
+</aside>
+
 
 ## Currencies
 
@@ -3695,7 +3702,7 @@ QFPay transaction number | <code>syssn</code> | String(40) |
 Return code | <code>respcd</code> | String(4) | 0000 = Request successful. <br> 1143/1145 = merchants are required to continue to query the transaction result. <br> All other return codes indicate transaction failure. Please refer to the page [Transaction Status Codes](#transaction-status-codes) for a complete list of response codes. 
 
 
-# WeChat Pay JSAPI
+# WeChat Pay JSAPI (in wechat browser)
 
 <a href="https://sdk.qfapi.com/images/wechat_jsapi_process.jpg" target="_blank">   
 ![WeChat JSAPI process-flow](/images/wechat_jsapi_process.jpg)</a>
@@ -3989,6 +3996,50 @@ Optionally merchants can activate real-name authentication with WeChat. Currentl
 |<code>appId</code>        | Yes | String(16) |Parameter return from WeChat after calling the payment API  |
 |<code>nonceStr</code>  | Yes | String(32) |Parameter return from WeChat after calling the payment API  |
 
+# WeChat Pay H5 (in any browser)
+
+<a href="https://sdk.qfapi.com/images/wechat-h5.png" target="_blank">   
+![WeChat H5 process-flow](/images/wechat-h5.png)</a>
+
+### HTTP Request
+
+`POST ../trade/v1/payment` `PayType: 800212`
+
+### Request Parameters
+
+|Parameter name|  Parameter code | Mandatory| Parameter type | Description |
+|:----    |:---|:----- |-----   |-----   |
+|Public payment parameters |—  |— |—  | Refer to the general documentation about transactions |
+|Extended Customer Info|<code>extend_info</code>|Yes|Object||
+
+<br> **<code>extend_info:</code>**  <br>
+
+|Parameter code|  Parameter code | Parameter code | Mandatory| Parameter type | Description |
+|:----    |:---|:----- |-----   |-----  |-----   |
+|<code>scene_info</code>|||Yes|Object||
+||<code>h5_info</code>||Yes|Object||
+|||<code>type</code>|Yes|String|scene type **"Wap"**|
+|||<code>wap_url</code>|Yes|String|mobile website address|
+|||<code>wap_name</code>|Yes|String|mobile website name|
+|<code>spbill_create_ip</code>|||Yes|String|IP address of user|
+
+### Response Parameters
+
+|Parameter code| Secondary parameter code| Parameter Type| Parameter name|Description|
+|:----    |:---|:----- |-----   |----   |
+|Public response parameters    |—  |— |—  | — |
+|Payment URL|<code>pay_url</code>|Yes|String||
+
+<aside class="warning">
+In normal process after payment, the user will return to the page where payment is initiated. If you want user to return to the specified page, you can insert redirect_url parameter to returned payment URL. For example, if you want user to jump to https://www.wechatpay.com.cn it can be processed as follows: <br>
+</aside>
+**pay_url** <br>
+
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&package=1037687096 <br>
+
+**Payment URL after redirect_url inserted** <br>
+
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&package=1037687096<br>&redirect_url=https%3A%2F%2Fwww.wechatpay.com.cn
 
 # WeChat Mini Programs
 
