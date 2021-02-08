@@ -4012,6 +4012,18 @@ Optionally merchants can activate real-name authentication with WeChat. Currentl
 |Public payment parameters |—  |— |—  | Refer to the general documentation about transactions |
 |Extended Customer Info|<code>extend_info</code>|Yes|Object||
 
+```plaintext
+extend_info:
+{"scene_info":{
+                "h5_info": { // h5支付固定传"h5_info"
+                             "type": "Wap", //场景类型
+                              "wap_url": "https://qfpay.com/h5/pay", //WAP网站URL地址
+                              "wap_name": "qfpay" //WAP 网站名
+                            }              },
+  "spbill_create_ip": "192.168.1.10"// 用户真实ip地址获取指引 https://pay.weixin.qq.com/wiki/doc/api/H5.php?chapter=15_5
+}
+```
+
 <br> **<code>extend_info:</code>**  <br>
 
 |Parameter code|  Parameter code | Parameter code | Mandatory| Parameter type | Description |
@@ -4022,6 +4034,8 @@ Optionally merchants can activate real-name authentication with WeChat. Currentl
 |||<code>wap_url</code>|Yes|String|mobile website address|
 |||<code>wap_name</code>|Yes|String|mobile website name|
 |<code>spbill_create_ip</code>|||Yes|String|IP address of user|
+
+
 
 ### Response Parameters
 
@@ -4282,6 +4296,95 @@ Request Body:
 |<code>txcurrcd</code>      |String| Currency  | Transaction currency. View the [Currencies](#currencies) table for a complete list of available currencies |
 
 
+# Customs Declaration
+
+Customs declaration API auto-sends the WeChat/Alipay payment data to the customs to simplify the clearance process and saves time for online cross-border stores.
+
+## Push Customs Declaration
+### HTTP Request
+
+`POST ../custom/v1/declare`
+
+### Request Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>trade_type</code>|Y|String(8)|weixin or alipay|
+|<code>syssn</code>|Y|String(32)|QFPay transaction number|
+|<code>customs</code>|Y|String(20)|Customs for declaration. Example：SHANGHAI_ZS|
+|<code>mch_customs_no</code>|Y|String(20)|Customs registration No. of the merchant|
+|<code>action_type</code>|N|String(256)|Declaration type. Only valid when <code>trate_type</code> is "wechat". "ADD" - new appplication, "MODIFY" - modification of applied declaration|
+|<code>mch_customs_name</code>|N|String(256)|Merchant customs record name. Must be passed when <code>trate_type</code> is "alipay". Exaple: jwyhanguo_card|
+|<code>out_request_no</code>|N|String(32)|Merchant order number. Must be passed when <code>trate_type</code> is "alipay". Exaple: 15725904083420588032|
+|<code>amount</code>|N|String(20)|Declaration amount. Must be passed when <code>trate_type</code> is "alipay". Example: 2.00|
+The following fields should be passed in case splitting or modifying order: <br>
+###
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>sub_order_no</code>|C|String(64)|Merchant sub-order No. It is required if there is a split order. Example：1111960490|
+|<code>fee_type</code>|C|String(8)|Currency. Must be passed when <code>trate_type</code> is "wechat". It can only be CNY|
+|<code>order_fee</code>|C|String(8)|Sub-order amount (in 0.01 CNY). Cannot exceed the original order amount. order_fee=transport_fee+product_fee. It is required if there is a split order Example：888|
+|<code>product_fee</code>|C|String(8)|Product price (in 0.01 CNY). It is required if there is a split order. Example：888|
+|<code>transport_fee</code>|C|String(8)|Logistics fee (in 0.01 CNY). It is required if there is a split order. Example：888|
+
+### Response Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>syssn</code>||String(40)|QFPay transaction number|
+|<code>respcd</code>||String(4)|0000 = Declaration successful. <br> 1143/1145 = merchants are required to continue to query the declaration result. <br> All other return codes indicate transaction failure. Please refer to the page [Transaction Status Codes](#transaction-status-codes) for a complete list of response codes.|
+|<code>resperr</code>||String(128)|Response message|
+|<code>respmsg</code>||String(128)|Other message information|
+|<code>verify_department</code>|||Verification organization|
+|<code>verify_department_trade_id</code>|||Transaction number of verification organization|
+## Query Customs Declaration
+
+Merchants query declaration status by QFPay transaction number.
+
+### HTTP Request
+
+`POST/GET ../custom/v1/query`
+
+### Request Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>trade_type</code>|Y|String(8)|weixin or alipay|
+|<code>customs</code>|Y|String(20)|Customs for declaration. Example：SHANGHAI_ZS|
+|<code>syssn</code>|Y|String(32)|QFPay transaction number|
+|<code>sub_order_no</code>|N|String(40)|Sub order number. It is required if there is a split order.|
+
+### Response Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>syssn</code>||String(40)|QFPay transaction number|
+|<code>respcd</code>||String(4)|0000 = Declaration successful. <br> 1143/1145 = merchants are required to continue to query the declaration result. <br> All other return codes indicate transaction failure. Please refer to the page [Transaction Status Codes](#transaction-status-codes) for a complete list of response codes.|
+|<code>resperr</code>||String(128)|Response message|
+|<code>respmsg</code>||String(128)|Other message information|
+|<code>data</code>|||Customs declaration details [{"resperr" : "", "errmsg" : null, "sub_order_no" : "15752730835729139712", "verify_department" : "OTHERS", "verify_department_trade_id" : "4200000459201911265585026208"}]|
+
+## Repush Customs Declaration
+
+If additional order information has been submitted to the customs but is lost in the electronic port, the customs declaration re-push API can be used to push the information to the customs again.
+
+### HTTP Request
+
+`POST ../custom/v1/redeclare`
+
+### Request Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>trade_type</code>|Y|String(8)|weixin or alipay|
+|<code>customs</code>|Y|String(20)|Customs for declaration. Example：SHANGHAI_ZS|
+|<code>syssn</code>|Y|String(32)|QFPay transaction number|
+|<code>mch_customs_no</code>|Y|String(20)|Customs registration No. of the merchant. Example: 110084111|
+|<code>sub_order_no</code>|N|String(40)|Sub order number. It is required if there is a split order.|
+### Response Parameters
+| Parameter code| Mandatory| Parameter type|Description|
+|:---|:----- |-----   |----   |
+|<code>syssn</code>||String(40)|QFPay transaction number|
+|<code>respcd</code>||String(4)|0000 = Declaration successful. <br> 1143/1145 = merchants are required to continue to query the declaration result. <br> All other return codes indicate transaction failure. Please refer to the page [Transaction Status Codes](#transaction-status-codes) for a complete list of response codes.|
+|<code>resperr</code>||String(128)|Response message|
+|<code>respmsg</code>||String(128)|Other message information|
+
+
 # Credit Card Payments
 
 We currently support credit card payments in the [Hong Kong environment](#environments). For payment processing two separate methods can be used, **Quick Payment** and **Security Verification Payment**. All major credit card issuers are supported.
@@ -4532,6 +4635,7 @@ Credit Card | <code>extend_info</code> | Yes | json | All information is mandato
 |Parameter name | Parameter code | Parameter type | Description |
 |:----    |:--- |-----   |----   |
 |Public payment parameters | — |— |— |
+
 
 
 # FAQs
