@@ -734,6 +734,7 @@ Payment amount | <code>txamt</code> | Int(11) |
 Other message information | <code>respmsg</code> | String(128) |  
 External transaction number | <code>out_trade_no</code> | String(128) | External transaction number  
 QFPay transaction number | <code>syssn</code> | String(40) | 
+Wallet/Channel transaction number| <code>chnlsn</code> | String | 
 Return code | <code>respcd</code> | String(4) | 0000 = Request successful. <br> 1143/1145 = merchants are required to continue to query the transaction result. <br> All other return codes indicate transaction failure. Please refer to the page [Transaction Status Codes](#transaction-status-codes) for a complete list of response codes. 
 
 
@@ -1752,6 +1753,7 @@ When the query transaction is a refund then an additional parameter <code>origss
 | Query result | <code>data</code> | Object | JSON format |
 | QFPay transaction number   |  <code>syssn</code>  |String(40) |  |
 | API order number | <code>out_trade_no</code> | String(128) | External transaction number / Merchant platform transaction number | 
+| Wallet/Channel transaction number | <code>chnlsn</code> | String |  | 
 | Product name | <code>goods_name</code> | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters. |
 | Transaction currency | <code>txcurrcd</code> | String(3) | View the [Currencies](#currencies) table for a complete list of available currencies |
 | Original transaction number | <code>origssn</code> | String(40) | Refers to the original QFPay transaction number. This parameter is only available when the <code>syssn</code> of a refund is queued |
