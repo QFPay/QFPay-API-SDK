@@ -329,64 +329,70 @@ Verify that your API credentials allow for the selected <code>pay_type</code>.
 Code | Description 
 --------- | ------- 
 800008 | Consumer Present QR Code Mode (CPM) for WeChat, Alipay, UNIONPAY Quick Pass
-800101 | Alipay Merchant Presented QR Code Payment in store (MPM) (Overseas Merchant) 
-800107 | Alipay Service Window H5 Payment (in Alipay WAP payments)
-800108 | Alipay Consumer Presented QR Code Payment (CPM) 
-800201 | WeChat Merchant Presented QR Code Payment (MPM) (Online Payment) (Overseas & HK Merchants) 
+800101 | Alipay Merchant Presented QR Code Payment in store (MPM) (Overseas Merchants)
+800108 | Alipay Consumer Presented QR Code Payment (CPM) (Overseas & HK Merchants)
+801101 | Alipay Online WEB (in browser Crome etc.) Payment (Overseas Merchants) **
+801107 | Alipay Online WAP (in mobile browser Crome etc.) Payment (Overseas Merchants) 
+801110 | Alipay in-APP Payments (Overseas Merchants)
+800107 | Alipay Service Window H5 Payment (in Alipay APP H5 payments)
+801501 | Alipay Merchant Presented QR Code (MPM) Payment (HK Merchants)
+801510 | Alipay In-App Payment (HK Merchants)
+801512 | Alipay Online WAP Payment (HK Merchants)
+801514 | Alipay Online WEB Payment (HK Merchants)
+800201 | WeChat Merchant Presented QR Code Payment (MPM) (Overseas & HK Merchants)
+800208 | WeChat Consumer Presented QR Code Payment (CPM) (Overseas & HK Merchants)
 800207 | WeChat JSAPI Payment - WeChat Official Account Payment (in Wechat App)(Overseas & HK Merchants)
 800212 | WeChat JSAPI Payment - WeChat Official Account Payment (in Wechat App)(CA Merchants)****
-800208 | WeChat Consumer Presented QR Code Payment (CPM) 
-800210 | WeChat in-APP Payment
-800213 | WeChat Mini-Program Payment 
+800210 | WeChat in-APP Payment (Overseas & HK Merchants)
+800213 | WeChat Mini-Program Payment (Overseas & HK Merchants)
+801008 | WeChat Pay HK Consumer Presented QR Code Payment (CPM) (Direct Settlement, HK Merchants) 
+801010 | WeChat Pay HK In-App Payment (Direct Settlement, HK Merchants) 
+805801 | PayMe Merchant Presented QR Code Payment in store (MPM) (HK Merchants)
+805808 | PayMe Consumer Presented QR Code Payment (CPM) (HK Merchants)
+805814 | PayMe Online WEB (in browser Crome etc.) Payment (HK Merchants)
+805812 | PayMe Online WAP (in mobile browser Crome etc.) Payment (HK Merchants) 
+805810 | PayMe In-App Payment (HK Merchants)
 800701 | UNIONPAY Quick Pass Merchant Presented QR Code Payment (MPM) 
 800708 | UNIONPAY Quick Pass Consumer Presented QR Code Payment (CPM) 
-801008 | WeChat Pay HK Consumer Presented QR Code Payment (CPM) (Direct Settlement, HK Merchant) 
-801010 | WeChat Pay HK In-App Payment (Direct Settlement, HK Merchant) 
-801114 | Alipay Online QR Code Payment (Overseas Merchant) **
-801112 | Alipay Online WAP Payment (Overseas Merchant) 
-801110 | Alipay in-APP Payments (Overseas Merchant) 
-801208 | LINEPAY dynamic QRC Payment - Consumer Present Mode (CPM) (TH Merchant)
-801301 | LINEPAY Online Payment (TH Merchant)
-801408 | AIRPAY dynamic QRC Payment - Consumer Present Mode (CPM) (TH Merchant)
-801501 | Alipay HK Merchant Presented Online QR Code Payment (HK Merchant) 
-801510 | Alipay HK In-App Payment (HK Merchant) 
-801512 | Alipay HK Online WAP Payment (HK Merchant) 
+801208 | LINEPAY dynamic QRC Payment - Consumer Present Mode (CPM) (TH Merchants)
+801301 | LINEPAY Online Payment (TH Merchants)
+801408 | AIRPAY dynamic QRC Payment - Consumer Present Mode (CPM) (TH Merchants)
 801701 | NETSPAY Merchant Presented QR Code Payment (MPM) 
 801801 | Alipay Pre-Authorization dynamic QRC Payment - Consumer Present Mode (CPM)
 801808 | Alipay Pre-Authorization dynamic QRC Payment - Merchant Present Mode (MPM)  
 801810 | Alipay Pre-Authorization in-APP Payment
 801814 | Alipay Pre-Authorization Online Payment
 801908 | Origami Consumer Presented QR Code Payment (CPM) 
-802001 | FPS Merchant Presented QR Code Payment (MPM) (HK Merchant)*** 
-802201 | AIRPAY Online Payment (TH Merchant)
-802301 | PayNow Merchant Presented QR Code Payment (MPM) (SG Merchant)*** 
-802901 | PromptPay dynamic QRC Payment - Merchant Present Mode (MPM) (TH Merchant)***
+802001 | FPS Merchant Presented QR Code Payment (MPM) (HK Merchants)*** 
+802201 | AIRPAY Online Payment (TH Merchants)
+802301 | PayNow Merchant Presented QR Code Payment (MPM) (SG Merchants)*** 
+802901 | PromptPay dynamic QRC Payment - Merchant Present Mode (MPM) (TH Merchants)***
 803001 | eWallet dynamic QRC Payment - Merchant Present Mode (MPM)
 803008 | eWallet dynamic QRC Payment - Consumer Present Mode (CPM)
-803101 | VIA dynamic QRC Payment - Merchant Present Mode (MPM) (JP and HK Merchant)
-803108 | VIA dynamic QRC Payment - Consumer Present Mode (CPM) (JP and HK Merchant)
-803208 | Touch 'n Go (TNG) dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchant)   
-803214 | Touch 'n Go (TNG) Online Payment (MY Merchant)**
-803301 | Razer dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchant)
-803308 | Razer dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchant)
-803314 | Razer Online Payment ** (MY Merchant)
-803701 | Octopus dynamic QRC Payment - Merchant Present Mode (MPM) (HK Merchant) 
-803712 | Octopus WAP Payment (HK Merchant) 
-803801 | Dash dynamic QRC Payment - Merchant Present Mode (MPM) (SG Merchant)
-803808 | Dash dynamic QRC Payment - Consumer Present Mode (CPM) (SG Merchant)
-804001 | Boost dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchant)
-804008 | Boost dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchant)
-804014 | Boost Online Payment (MY Merchant)**
-804101 | Maybank dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchant)
-804108 | Maybank dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchant)
-804114 | Maybank Online Payment (MY Merchant)**
-804201 | GrabPay dynamic QRC Payment - Merchant Present Mode (MPM) (MY and SG Merchant)
-804208 | GrabPay dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchant)
-804214 | GrabPay Online Payment (MY Merchant)** (SG Merchant)*
-805208 | TrueMoney dynamic QRC Payment - Consumer Present Mode (CPM)
-805401 | ThaiQR dynamic QRC Payment - Merchant Present Mode (MPM) (SG and MY Merchant)***
+803101 | VIA dynamic QRC Payment - Merchant Present Mode (MPM) (JP and HK Merchants)
+803108 | VIA dynamic QRC Payment - Consumer Present Mode (CPM) (JP and HK Merchants)
+803208 | Touch 'n Go (TNG) dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchants)   
+803214 | Touch 'n Go (TNG) Online Payment (MY Merchants)**
+803301 | Razer dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchants)
+803308 | Razer dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchants)
+803314 | Razer Online Payment ** (MY Merchants)
+803701 | Octopus dynamic QRC Payment - Merchant Present Mode (MPM) (HK Merchants) 
+803712 | Octopus WAP Payment (HK Merchants) 
+803801 | Dash dynamic QRC Payment - Merchant Present Mode (MPM) (SG Merchants)
+803808 | Dash dynamic QRC Payment - Consumer Present Mode (CPM) (SG Merchants)
+804001 | Boost dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchants)
+804008 | Boost dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchants)
+804014 | Boost Online Payment (MY Merchants)**
+804101 | Maybank dynamic QRC Payment - Merchant Present Mode (MPM) (MY Merchants)
+804108 | Maybank dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchants)
+804114 | Maybank Online Payment (MY Merchants)**
+804201 | GrabPay dynamic QRC Payment - Merchant Present Mode (MPM) (MY and SG Merchants)
+804208 | GrabPay dynamic QRC Payment - Consumer Present Mode (CPM) (MY Merchants)
+804214 | GrabPay Online Payment (MY Merchant)** (SG Merchants)*
+805208 | TrueMoney dynamic QRC Payment - Consumer Present Mode (CPM) (TH Merchants)
+805401 | ThaiQR dynamic QRC Payment - Merchant Present Mode (MPM) (SG and MY Merchants)***
 805508 | Credit Card: first_data Quick Payment Mode (HK Merchant) |
-805514 | Credit Card: first_data Security Verification Payment Mode (HK Merchant) |
+805514 | Credit Card: first_data Security Verification Payment Mode (HK Merchants) |
 805601 | GoPay dynamic QRC Payment - Merchant Present Mode (MPM)***
 805612 | GoPay WAP Payment***
 
@@ -715,7 +721,7 @@ Payment type | <code>pay_type</code> | Yes | String(6) | Please refer to the sec
 API Order Number | <code>out_trade_no</code> | Yes | String(128)| External transaction number / Merchant platform transaction number: This parameter must be unique for each payment and refund request under the same merchant account in the system.
 Request transaction time | <code>txdtm</code> | Yes | String(20) | Transaction time format：<br> YYYY-MM-DD hh:mm:ss 
 Authorization Code | <code>auth_code</code> | Yes<br> (CPM only) | String(128) | Specifies the authorization code for scanning a barcode/QR Code. The <code>auth_code</code> returned is unique in each authorization. Each <code>auth_code</code> can be used only once and will automatically expire in one day. For testing CPM with Alipay and WeChat Pay the <code>auth_code</code> can be extracted with any QRC reader or manually found in the consumer wallet below the barcode.
-Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong WAP payment<br>801501 - Alipay Hong Kong scan code<br>801112 - Alipay overseas WAP payment<br>801114 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
+Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong WAP payment<br>801501 - Alipay Hong Kong scan code<br>801107 - Alipay overseas WAP payment<br>801101 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
 Product name identification | <code>goods_name</code> | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass in the MCHID parameter in the API request. 
 Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
@@ -1078,7 +1084,7 @@ The merchant generates a dynamic QR code based on the Alipay / WeChat Pay protoc
 |:----    |:---|:----- |-----   |-----   |
 |Public payment parameter | —  | — | — | — |
 |Payment mark | <code>pay_tag</code>  | No |     String(16) | The default value is: ALIPAYHK<br>Alipay Continental version: ALIPAYCN<br>801103 - Alipay overseas online refund (QF_BUSICD_ALIPAY_ONLINE_REFUND)<br>801104 - Alipay overseas online inquiry (QF_BUSICD_ALIPAY_ONLINE_QUERY)<br>801110 - Alipay overseas online APP payment (QF_BUSICD_ALIPAY_ONLINE_APP)<br>801501 - Alipay Hong Kong pc scan code<br>801512 - Alipay Hong Kong WAP payment<br>801510 - Alipay Hong Kong APP payment  |
-Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong WAP payment<br>801501 - Alipay Hong Kong scan code<br>801112 - Alipay overseas WAP payment<br>801114 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
+Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong WAP payment<br>801501 - Alipay Hong Kong scan code<br>801107 - Alipay overseas WAP payment<br>801101 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
 |Designated payment method    |<code>limit_pay</code>|No |String   |The parameter value is specified as no_credit, and credit card payment is prohibited. This setting only applies to mainland China.  |
 
 ### Response Parameters
@@ -2561,7 +2567,7 @@ def make_req_sign(data, key):
 # Body payload
 txamt = '10' #In USD,EUR,etc. Cent
 txcurrcd = 'EUR'
-pay_type = '801114' # Alipay Web Payment = 801114
+pay_type = '801101' # Alipay Web Payment = 801101
 auth_code='283854702356157409' #CPM only
 out_trade_no = '01234567890123'
 txdtm = current_time
@@ -2591,7 +2597,7 @@ public class TestMain {
         String key="0E32A59A8B454940A2FF39*********";
         String mchid="ZaMVg*****";
 
-        String pay_type="801114";
+        String pay_type="801101";
         String out_trade_no= "01234567890123";
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date=df.format(new Date());
@@ -2639,7 +2645,7 @@ console.log(tradenumber)
 var payload = {
 'txamt': '10', // In USD,EUR,etc. Cent
 'txcurrcd': 'EUR',
-'pay_type': '801114', // Alipay Web Payment = 801114
+'pay_type': '801101', // Alipay Web Payment = 801101
 'out_trade_no': tradenumber,
 'txdtm': dateTime,
 'mchid': 'ZaMVg*****'
@@ -2696,7 +2702,7 @@ ob_start();
   
      $url = 'https://test-openapi-eur.qfapi.com';
      $api_type = '/trade/v1/payment';
-     $pay_type = '801114'; //Alipay Web Payment = 801114
+     $pay_type = '801101'; //Alipay Web Payment = 801101
      //$mchid = "MNxMp11FV35qQN"; //Only agents must provide this parameter
      $app_code = 'FF2FF74F2F2E42769A4A73*********'; //API credentials are provided by QFPay
      $app_key = '7BE791E0FD2E48E6926043B*********'; //API credentials are provided by QFPay
@@ -2752,7 +2758,7 @@ ob_end_flush();
   "paydtm": "2020-04-13 10:30:34", 
   "txcurrcd": "THB", 
   "respmsg": "", 
-  "pay_type": "801114", 
+  "pay_type": "801101", 
   "cardcd": "", 
   "udid": "qiantai2", 
   "txdtm": "2020-04-13 10:30:34", 
@@ -2775,8 +2781,8 @@ Customers make purchases on a merchant website with Alipay. The user scans the d
 ### HTTP Request
 
 `POST ../trade/v1/payment` <br>
-`PayType: 801114` `Overseas Merchants Web` <br>
-`PayType: 801112` `Overseas Merchants WAP` <br>
+`PayType: 801101` `Overseas Merchants Web` <br>
+`PayType: 801107` `Overseas Merchants WAP` <br>
 `PayType: 801501` `Hong Kong Merchants Web` <br>
 `PayType: 801512` `Hong Kong Merchants WAP` <br>
 
@@ -2786,7 +2792,7 @@ Parameter name | Parameter code | Mandatory | Type | Description
 --------- | -------- | --------- | ------- | ------- 
 Payment amount | <code>txamt</code> | Yes | Int(11) | Amount of the transaction. Unit in cents (i.e. 100 = $1) 
 Currency | <code>txcurrcd</code> | Yes | String(3) | Transaction currency. View the [Currencies](#currencies) table for a complete list of available currencies
-Payment type | <code>pay_type</code> | Yes | String(6) | Alipay Web Payment = 801114
+Payment type | <code>pay_type</code> | Yes | String(6) | Alipay Web Payment = 801101
 API Order Number | <code>out_trade_no</code> | Yes | String(128)| External transaction number / Merchant platform transaction number: This parameter must be unique for each payment and refund request under the same merchant account in the system.
 Request transaction time | <code>txdtm</code> | Yes | String(20) | Transaction time format：<br> YYYY-MM-DD hh:mm:ss 
 Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code
@@ -2801,7 +2807,7 @@ Redirect URL | <code>return_url</code> | No | String(512) | Address for user red
 
 Parameter name | Parameter code | Type | Description 
 --------- | -------- | --------- | ------- 
-Payment type | <code>pay_type</code> | String(6) | Alipay Web/Wap Payment = 801114/801112 |
+Payment type | <code>pay_type</code> | String(6) | Alipay Web/Wap Payment = 801101/801107 |
 System transaction time | <code>sysdtm</code> | String(20) | Format：YYYY-MM-DD hh:mm:ss <br> This parameter value is used as the cut-off time for settlements. | 
 Request transaction time | <code>txdtm</code> | String(20) | Format：YYYY-MM-DD hh:mm:ss  | 
 Response message | <code>resperr</code> | String(128) |  
@@ -2858,7 +2864,7 @@ def make_req_sign(data, key):
 # Body payload
 txamt = '10' #In USD,EUR,etc. Cent
 txcurrcd = 'EUR'
-pay_type = '801112' # Alipay Wap Payment = 801112
+pay_type = '801107' # Alipay Wap Payment = 801107
 auth_code='283854702356157409' #CPM only
 out_trade_no = '01234567890123'
 txdtm = current_time
@@ -2888,7 +2894,7 @@ public class TestMain {
         String key="0E32A59A8B454940A2FF39*********";
         String mchid="ZaMVg*****";
 
-        String pay_type="801112";
+        String pay_type="801107";
         String out_trade_no= "01234567890123";
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date=df.format(new Date());
@@ -2936,7 +2942,7 @@ console.log(tradenumber)
 var payload = {
 'txamt': '10', // In USD,EUR,etc. Cent
 'txcurrcd': 'EUR',
-'pay_type': '801112', // Alipay Wap Payment = 801112
+'pay_type': '801107', // Alipay Wap Payment = 801107
 'out_trade_no': tradenumber,
 'txdtm': dateTime,
 'mchid': 'ZaMVg*****'
@@ -2993,7 +2999,7 @@ ob_start();
   
      $url = 'https://test-openapi-eur.qfapi.com';
      $api_type = '/trade/v1/payment';
-     $pay_type = '801112'; //Alipay Wap Payment = 801112
+     $pay_type = '801107'; //Alipay Wap Payment = 801107
      //$mchid = "MNxMp11FV35qQN"; //Only agents must provide this parameter
      $app_code = 'FF2FF74F2F2E42769A4A73*********'; //API credentials are provided by QFPay
      $app_key = '7BE791E0FD2E48E6926043B*********'; //API credentials are provided by QFPay
@@ -3049,7 +3055,7 @@ ob_end_flush();
   "paydtm": "2020-04-13 11:32:03", 
   "txcurrcd": "THB", 
   "respmsg": "", 
-  "pay_type": "801112", 
+  "pay_type": "801107", 
   "cardcd": "", 
   "udid": "qiantai2", 
   "txdtm": "2020-04-13 11:32:03", 
@@ -3376,7 +3382,7 @@ Request Body:
 |Public payment parameters    |—|— |—   |—   |
 |Product description    |<code>goods_info</code>|No | String  | Must not contain special characters   |
 |Payment mark    |<code>pay_tag</code>|No | String(16)  | The default value is: ALIPAYHK<br>Alipay Continental version: ALIPAYCN<br>801103 - Alipay overseas online refund (QF_BUSICD_ALIPAY_ONLINE_REFUND)<br>801104 - Alipay overseas online inquiry (QF_BUSICD_ALIPAY_ONLINE_QUERY)<br>801110 - Alipay overseas online APP payment (QF_BUSICD_ALIPAY_ONLINE_APP)<br>801501 - Alipay Hong Kong pc scan code<br>801512 - Alipay Hong Kong Wap payment<br>801510 - Alipay Hong Kong APP payment  |
-Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong Wap payment<br>801501 - Alipay Hong Kong scan code<br>801112 - Alipay overseas Wap payment<br>801114 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
+Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong Wap payment<br>801501 - Alipay Hong Kong scan code<br>801107 - Alipay overseas Wap payment<br>801101 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
 
 
 ### Response Parameters
