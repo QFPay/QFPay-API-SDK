@@ -3309,7 +3309,7 @@ Request Body:
 |<code>txcurrcd</code>      |String| Currency  | Transaction currency. View the [Currencies](#currencies) table for a complete list of available currencies |
 
 
-# Alipay APP Payments
+# Alipay in-APP Payments
 
 <a href="https://sdk.qfapi.com/images/app_payment_process.jpg" target="_blank">   
 ![Alipay APP Payment process-flow](/images/app_payment_process.jpg)</a>
@@ -4216,10 +4216,10 @@ QF Pay WeChat Mini Program Boilerplate</a> and get access to the MD5 hash algori
 4) Obtain the user openid with the cloudfunction "getUserOpenID" and run the API calls accroding to the code. <br>
 
 
-# WeChat APP Payments
+# WeChat in-APP Payments
 
-<a href="https://sdk.qfapi.com/images/app_payment_process.jpg" target="_blank">   
-![WeChat APP Payment process-flow](/images/app_payment_process.jpg)</a>
+<a href="https://sdk.qfapi.com/images/wechat-in-app.png" target="_blank">   
+![WeChat APP Payment process-flow](/images/wechat-in-app.png)</a>
 
 
 ### HTTP Request
@@ -4227,9 +4227,11 @@ QF Pay WeChat Mini Program Boilerplate</a> and get access to the MD5 hash algori
 `POST ../trade/v1/payment`
 `PayType: 800210`
 
-WeChat APP payments require a formal application on the WeChat Open Platform. Merchants have to register an account and the APP and then receive an <code>appid</code> to enable payments. For more information, please refer to the official [Wechat documentation](https://pay.weixin.qq.com/wiki/doc/api/app/app_jw.php?chapter=9_12&index=2).
+WeChat in-APP payments require a formal application on the WeChat Open Platform. Merchants have to register an account and the APP and then receive an <code>appid</code> to enable payments. For more information, please refer to the official [Wechat documentation](https://pay.weixin.qq.com/wiki/doc/api/wxpay/en/pay/In-AppPay/chapter6_2.shtml#menu1).
 
 Optionally merchants can activate real-name authentication with WeChat. Currently real-name identification is only available for Mainland Chinese citizens and include a person's real name and national ID card number. In case identification is provided the payer's wallet information like a connected bank card must be identical with the data provided by merchants. If customers did not yet bind their WeChat account to a bank card the payment will go through regardless.
+
+To download Wechat SDK please refer to this [link](https://developers.weixin.qq.com/doc/oplatform/Downloads/iOS_Resource.html).
 
 ### Request Parameters
 
@@ -4302,6 +4304,7 @@ Request Body:
 |<code>resperr</code>     |String(128)| Description error |  |
 |<code>cardcd</code>     |String| Card number |  |
 |<code>txcurrcd</code>      |String| Currency  | Transaction currency. View the [Currencies](#currencies) table for a complete list of available currencies |
+|<code>pay_params</code>      |Object| payment data  | Payment data to call Wechat SDK |
 
 
 # Customs Declaration
