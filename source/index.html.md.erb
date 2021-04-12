@@ -724,7 +724,7 @@ Authorization Code | <code>auth_code</code> | Yes<br> (CPM only) | String(128) |
 Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code<br>800101 - Alipay scan code <br>801512 - Alipay Hong Kong WAP payment<br>801501 - Alipay Hong Kong scan code<br>801107 - Alipay overseas WAP payment<br>801101 - Alipay overseas scan code<br>801010 - WeChat Hong Kong APP<br>801510 - Alipay Hong Kong APP
 Product name identification | <code>goods_name</code> | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass in the MCHID parameter in the API request. 
-Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
+Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8 (+0800). 
 Device ID | <code>udid</code> | No | String(40) |  Unique transaction device ID. Is displayed on the merchant portal. 
 
 
@@ -1742,7 +1742,7 @@ When the query transaction is a refund then an additional parameter <code>origss
 |Transaction return code | <code> respcd </code> |No |String(4) | Returns all orders with return code status by default   |
 |Starting time | <code> start_time </code> |No |String(20) | It is ignored when <code>syssn</code> or <code>out_trade_number</code> is provided. The default date time is the start of current month. Cross-month queries must add the time query parameters <code>start_time</code> and <code>end_time</code>. <br>Format: YYYY-MM-DD hh&#58;mm:ss   |
 |End Time | <code> end_time </code> |No | String(20) | It is ignored when <code>syssn</code> or <code>out_trade_number</code> is provided. The default date time is the end of current month. Cross-month queries must add the time query parameters <code>start_time</code> and <code>end_time</code>. <br/>Format: YYYY-MM-DD hh&#58;mm:ss   |
-|Time zone | <code> txzone </code> |No | String(5) | Used to record the local order time. The default is Beijing time UTC +08:00   |
+|Time zone | <code> txzone </code> |No | String(5) | Used to record the local order time. The default is Beijing time UTC+8 (+0800)   |
 |Number of pages | <code> page </code>   |No |  Int(8) | Default value is 1   |
 |Number of items displayed per page | <code> page_size </code> |No |  Int(8) | By default 10 transactions will be displayed. The maximum <code>page_size</code> value is 100  |
 
@@ -2379,7 +2379,7 @@ Merchants can use the refund interface to refund transactions. The merchant acco
 |Refund amount | <code> txamt </code>   |Yes |Int(11)  | Amount of the refund. Unit in cents (i.e. 100 = $1) <br> Required for both full refund and partial refund. Some payment channel may not support partial refund.|
 |Transaction request time | <code> txdtm </code>   |Yes |String(20) |Format: YYYY-MM-DD hh&#58;mm:ss|
 |Merchant ID | <code> mchid </code>  |No |String(16)  | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID. On the contrary, if MCHID is not provided, merchants shall not pass the MCHID field in the API request. |
-|Transaction time | <code> txzone </code>   |No |String(5)  |Used to record the local transaction time. The default is Beijing time UTC +08:00|
+|Transaction time | <code> txzone </code>   |No |String(5)  |Used to record the local transaction time. The default is Beijing time UTC+8 (+0800)|
 |Device ID | <code> udid </code>    |No |String(40)  |Unique transaction device ID|
 
 
@@ -2798,7 +2798,7 @@ Request transaction time | <code>txdtm</code> | Yes | String(20) | Transaction t
 Order expiration time | <code>expired_time</code> | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code
 Product name identification | <code>goods_name</code> | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass the MCHID field in the API request. 
-Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
+Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8 (+0800). 
 Device ID | <code>udid</code> | No | String(40) |  Unique transaction device ID. Is displayed on the merchant portal. 
 Redirect URL | <code>return_url</code> | No | String(512) | Address for user redirect after successful payment. Mandatory parameter to submit for GrabPay Online. Alipay WAP restricts the <code>return_url</code> to maximum 200 characters.
 
@@ -3228,7 +3228,7 @@ Request Body:
 |Transaction amount    | <code>txamt</code> |No |    Int   |Whether to pass this parameter depends on the payment channel, Alipay and WeChat Pay do not need to submit this information  |
 |Transaction request time    |<code>txdtm</code>  |Yes  |String    |Format: YYYY-MM-dd hh&#58;mm:ss  |
 |Unique device id   |<code>udid</code> |No|String    |   |
-|Time zone    |<code>txzone</code> | No |String    |Used to record the local order time. The default is Beijing time GMT+8  |
+|Time zone    |<code>txzone</code> | No |String    |Used to record the local order time. The default is Beijing time GMT+8 (+0800)  |
 
 **Response Parameter**
 
@@ -3289,7 +3289,7 @@ Request Body:
 |Transaction amount    | <code>txamt</code>  | Yes | int     |The actual amount of consumption, the maximum deduction amount cannot exceed the fozen funds|
 |Transaction request time    | <code>txdtm</code>   | Yes | String      | Format: YYYY-MM-DD hh&#58;mm:ss|
 | Device ID   | <code>udid</code>   | No | String         |Must be unique|
-| Time zone | <code>txzone</code>    | No | String        |Used to record the local order time. The default is Beijing time GMT+8|
+| Time zone | <code>txzone</code>    | No | String        |Used to record the local order time. The default is Beijing time GMT+8 (+0800)|
 | Redirect URL   | <code>return_url</code>   | No | String        | Redirect to address after successful payment. Mandatory parameter to submit for GrabPay Online. Alipay WAP restricts the <code>return_url</code> to maximum 200 characters. |
 
 
@@ -3688,7 +3688,7 @@ Request transaction time | <code>txdtm</code> | |Yes | String(20) | Transaction 
 Order expiration time | <code>expired_time</code> | | No<br> (MPM only) | String(3)  | QRC expiration time in unit minutes. The default expiration time is 30 minutes. The parameter can manually be adjusted to a minimum of 5 minutes, and up to a maximum of 120 minutes.<br> Available for: <br>800201 - WeChat scan code
 Product name identification | <code>goods_name</code> | | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass the MCHID field in the API request. 
-Time zone | <code>txzone</code> | | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
+Time zone | <code>txzone</code> | | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8 (+0800). 
 Device ID | <code>udid</code> | | No | String(40) | Unique transaction device ID. Is displayed on the merchant portal. 
 RMB Tag | <code>rmb_tag</code> | | No | String(1) | WeChat Pay in Hong Kong uses <code>rmb_tag</code> = Y together with <code>txcurrcd</code> = CNY to indicate that the transaction currency is RMB.
 Extended Customer Info | <code>extend_info</code> | <code>user_creid</code> <br> <code>user_truename</code> | No | Object | Real name customer identification. This parameter is currently only available for Mainland Chinese citizens and needs to be explicitly activated with WeChat for the selected [PayType](#payment-codes). The consumer's **national ID card number** is contained in the parameter <code>user_creid</code> and the payer's **real name** in encoded form or written in Chinese characters must be provided in <code>user_truename</code>. An example looks like this; extend_info = '{"user_creid":"430067798868676871","user_truename":"\\\u5c0f\\\u6797"}'
@@ -4285,7 +4285,7 @@ Request Body:
 |RMB Tag | <code>rmb_tag</code> | No | String(1) | WeChat Pay in Hong Kong uses <code>rmb_tag</code> = Y together with <code>txcurrcd</code> = CNY to indicate that the transaction currency is RMB.|
 |Transaction request time    | <code>txdtm</code>   | Yes | String      | Format: YYYY-MM-DD hh&#58;mm:ss|
 | Device ID   | <code>udid</code>   | No | String         |Must be unique|
-| Time zone | <code>txzone</code>    | No | String        |Used to record the local order time. The default is Beijing time GMT+8|
+| Time zone | <code>txzone</code>    | No | String        |Used to record the local order time. The default is Beijing time GMT+8 (+0800)|
 | Redirect URL   | <code>return_url</code>   | No | String        | Redirect to address after successful payment. Mandatory parameter to submit for GrabPay Online. Alipay WAP restricts the <code>return_url</code> to maximum 200 characters.|
 |Extended Customer Info    | <code>extend_info</code>  | No | Object  | Real name customer identification. This parameter is currently only available for Mainland Chinese citizens and needs to be explicitly activated with WeChat for the selected [PayType](#payment-codes). The consumer's **national ID card number** is contained in the parameter <code>user_creid</code> and the payer's **real name** in encoded form or written in Chinese characters must be provided in <code>user_truename</code>. An example looks like this; extend_info = '{"user_creid":"430067798868676871","user_truename":"\\\u5c0f\\\u6797"}' |
 
@@ -4499,7 +4499,7 @@ API Order Number | <code>out_trade_no</code> | Yes | String(128)| External trans
 Request transaction time | <code>txdtm</code> | Yes | String(20) | Transaction time format：<br> YYYY-MM-DD hh:mm:ss 
 Product name identification | <code>goods_name</code> | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass in the MCHID parameter in the API request. 
-Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
+Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8 (+0800). 
 Device ID | <code>udid</code> | No | String(40) |  Unique transaction device ID. Is displayed on the merchant portal. 
 Credit Card | <code>extend_info</code> | Yes | json | All information is mandatory to be provided. Example: <code>{"quick_payinfo": {"card_no": "6200xxx8888",#String(16) "exp_year": "2020",#String(4) "exp_month": "05",#String(2) "security_code": "888",#String(4)}}</code>
 
@@ -4604,7 +4604,7 @@ API Order Number | <code>out_trade_no</code> | Yes | String(128)| External trans
 Request transaction time | <code>txdtm</code> | Yes | String(20) | Transaction time format：<br> YYYY-MM-DD hh:mm:ss 
 Product name identification | <code>goods_name</code> | No | String(64) | Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be **UTF-8** encoded if it is written in Chinese characters.
 QF Pay merchant number | <code>mchid</code> | No | String(16) | May or may not be given to merchant. If MCHID is given, it is mandatory to provide the MCHID .On the contrary, if MCHID is not provided, merchants shall not pass in the MCHID parameter in the API request. 
-Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8. 
+Time zone | <code>txzone</code> | No | String(5) | Transaction Time zone: Record of the transaction in local time, default time zone is Beijing time UTC+8 (+0800). 
 Device ID | <code>udid</code> | No | String(40) |  Unique transaction device ID. Is displayed on the merchant portal. 
 Credit Card | <code>extend_info</code> | Yes | json | All information is mandatory to be provided. Example: <code>{"quick_payinfo": {"card_no": "6200xxx8888",#String(16) "exp_year": "2020",#String(4) "exp_month": "05",#String(2) "security_code": "888",#String(4)}}</code>
 
