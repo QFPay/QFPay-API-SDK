@@ -331,8 +331,8 @@ Code | Description
 800008 | Consumer Present QR Code Mode (CPM) for WeChat, Alipay, UNIONPAY Quick Pass
 800101 | Alipay Merchant Presented QR Code Payment in store (MPM) (Overseas Merchants)
 800108 | Alipay Consumer Presented QR Code Payment (CPM) (Overseas & HK Merchants)
-801101 | Alipay Online WEB (in browser Crome etc.) Payment (Overseas Merchants) **
-801107 | Alipay Online WAP (in mobile browser Crome etc.) Payment (Overseas Merchants) 
+801101 | Alipay Online WEB (in browser Chrome etc.) Payment (Overseas Merchants) **
+801107 | Alipay Online WAP (in mobile browser Chrome etc.) Payment (Overseas Merchants) 
 801110 | Alipay in-APP Payments (Overseas Merchants)
 800107 | Alipay Service Window H5 Payment (in Alipay APP H5 payments)
 801501 | Alipay Merchant Presented QR Code (MPM) Payment (HK Merchants)
@@ -349,8 +349,8 @@ Code | Description
 801010 | WeChat Pay HK In-App Payment (Direct Settlement, HK Merchants) 
 805801 | PayMe Merchant Presented QR Code Payment in store (MPM) (HK Merchants)
 805808 | PayMe Consumer Presented QR Code Payment (CPM) (HK Merchants)
-805814 | PayMe Online WEB (in browser Crome etc.) Payment (HK Merchants)
-805812 | PayMe Online WAP (in mobile browser Crome etc.) Payment (HK Merchants) 
+805814 | PayMe Online WEB (in browser Chrome etc.) Payment (HK Merchants)
+805812 | PayMe Online WAP (in mobile browser Chrome etc.) Payment (HK Merchants) 
 805810 | PayMe In-App Payment (HK Merchants)
 800701 | UNIONPAY Quick Pass Merchant Presented QR Code Payment (MPM) 
 800708 | UNIONPAY Quick Pass Consumer Presented QR Code Payment (CPM) 
@@ -3919,7 +3919,7 @@ app = Flask(__name__)
 @app.route("/payment",methods=['GET', 'POST'])
 def api_payment():
     
-    if "MicroMessenger" in request.headers.get('User-Agent'):  #get an oauth_code
+    if "MichroMessenger" in request.headers.get('User-Agent'):  #get an oauth_code
         print (get_out_code())
         return redirect(get_out_code(), code=302)    
     
