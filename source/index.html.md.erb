@@ -3314,11 +3314,15 @@ Request Body:
 <a href="https://sdk.qfapi.com/images/alipay-in-app.png" target="_blank">   
 ![Alipay APP Payment process-flow](/images/alipay-in-app.png)</a>
 
-To download Alipay SDK and other details please refer to this [link](https://global.alipay.com/docs/ac/app/client_integration).
+To download Alipay Oversea SDK , please refer to this [link](https://global.alipay.com/docs/ac/app/client_integration). <br>
+To download Alipay HK SDK, please refer to this [link](https://global.alipay.com/docs/ac/app_hk/download). <br>
+To know how to trigger Alipay HK SDK , please refer to this [link](https://global.alipay.com/docs/ac/hkapi/securitypay_pay).
 
 ### HTTP Request
 
-`POST ../trade/v1/payment` `PayType: 801110`
+`POST ../trade/v1/payment` <br>
+`PayType: 801110 Oversea Merchants` <br>
+`PayType: 801510 Hong Kong Merchants` 
 
 
 ### Request Parameters
@@ -3327,55 +3331,68 @@ To download Alipay SDK and other details please refer to this [link](https://glo
 
 Request Body:
 
-{
-  goods_info=test_app&goods_name=qfpay&mchid=R1zQrTdJnn&out_trade_no=Native20190725152211e999e6db0e&pay_tag=ALIPAYHK&pay_type=801510&txamt=10&txcurrcd=HKD&txdtm=2019-07-25 15:22:12&udid=AA
-}
+txamt=1&txcurrcd=HKD&pay_type=801510&out_trade_no=052711570017898&txdtm=2021-05-27+11%3A57%3A00&goods_name=goods_name&goods_info=goods_info&mchid=nDB64h9qJ1An&trade_name=trade_name&goods_detail=goods_detail&return_url=http%3A%2F%2Fwww.qfpay.com%2F&pay_tag=ALIPAYHK&seller_id=testoverseas9191%40alipay.com
 
 ```
 
-> The above command returns JSON structured like this:
+
+> QFPay Response:
 
 ```json
 {
-  "sysdtm": "2019-07-25 15:22:14", 
-  "paydtm": "2019-07-25 15:22:14", 
-  "txcurrcd": "HKD", 
-  "respmsg": "", 
-  "pay_params": 
-        { 
-        "body": "test_app", 
-        "forex_biz": "FP", 
-        "seller_id": "2088231067382451", 
-        "product_code": "NEW_WAP_OVERSEAS_SELLER", 
-        "total_fee": 0.1, 
-        "service": "mobile.securitypay.pay", 
-        "payment_inst": "ALIPAYHK", 
-        "subject": "qfpay", 
-        "secondary_merchant_name": "HKTest (Branch Store)", 
-        "_input_charset": "UTF-8", 
-        "sign": "GetP0UKfKIAoCdeop7oFhMaVkDfMGZ9cFjpAHXgvNxZG1FYhsMDcrkgn38LmyN8p9mhzOPEuNWVCZaXjutkqGn9FG%2F1uD8%2FPT8lwyNUNLZ%2BxTJ5mY2RpmGJsQhU2aICbE%2F1uGAPYaQsbN0mFwTLs7IkIXE8lz5kG4VneLyO3%2BZQ%3D", 
-        "currency": "HKD", 
-        "out_trade_no": "20190725000300020082770207", 
-        "payment_type": "1", 
-        "secondary_merchant_id": "2319316", 
-        "sign_type": "RSA", 
-        "notify_url": "https://o2.qfpay.com/online-test/trade/alipay_hk/v1/notify", 
-        "partner": "2088231067382451", 
-        "it_b_pay": "30m", 
-        "return_url": "", 
-        "secondary_merchant_industry": 5311
-        }, 
-  "pay_type": "801510", 
-  "cardcd": "", 
-  "udid": "AA", 
-  "txdtm": "2019-07-25 15:22:12", 
-  "txamt": "10", 
-  "resperr": "交易成功", 
-  "out_trade_no": "Native20190725152211e999e6db0e", 
-  "syssn": "20190725000300020082770207", 
-  "respcd": "0000", 
-  "chnlsn": ""
+  "pay_type": "801510",
+  "sysdtm": "2021-05-27 11:57:02",
+  "paydtm": "2021-05-27 11:57:02",
+  "udid": "qiantai2",
+  "txcurrcd": "HKD",
+  "txdtm": "2021-05-27 11:57:00",
+  "txamt": "1",
+  "resperr": "交易成功",
+  "respmsg": "",
+  "out_trade_no": "052711570017898",
+  "syssn": "20210527154100020004180921",
+  "pay_params": {
+    "body": "goods_info",
+    "forex_biz": "FP",
+    "seller_id": "2088231067382451",
+    "secondary_merchant_id": "1000007081",
+    "service": "mobile.securitypay.pay",
+    "payment_inst": "ALIPAYHK",
+    "it_b_pay": "30m",
+    "secondary_merchant_name": "IFlare Hong Kong Limited (external) - online",
+    "_input_charset": "UTF-8",
+    "sign": "iU1yXUnsCK7rJAu0DoN61arVexbIfo3GLR5jr3QzjkZ29INSPhcA4e%2F2%2BdPrsf5huzQAkxVKP0CTfvaGPMYqNkxmhoaJWUH0ZhgYDgKugMvtweBvRqOX2W0h3A%2F%2FIdJuxeyOAuh7bHiuazSB3ZH%2BEQwRGP%2Bkk8Jpha930gHwPtw%3D",
+    "currency": "HKD",
+    "out_trade_no": "20210527154100020004180921",
+    "payment_type": "1",
+    "total_fee": 0.01,
+    "sign_type": "RSA",
+    "notify_url": "https://test-o2-hk.qfapi.com/trade/alipay_hk/v1/notify",
+    "partner": "2088231067382451",
+    "secondary_merchant_industry": "5941",
+    "product_code": "NEW_WAP_OVERSEAS_SELLER",
+    "return_url": "http://www.qfpay.com/",
+    "subject": "goods_name"
+  },
+  "respcd": "0000",
+  "chnlsn": "",
+  "cardcd": ""
 }
+```
+
+```plaintext
+Request using Alipay SDK：
+
+(After you receive the content of pay_params, when you call Alipay SDK, 
+the orderinfo request parameters need to be adjusted in the following format:
+Combine all the array values in the format of key="value", request parameters 
+in ascending order of parameter name, then use "&" to link the parameters, 
+"sign" and "sign_type" parameters need to be placed at the end.) 
+
+Sample:
+
+_input_charset="UTF-8"&body="goods_info"&currency="HKD"&forex_biz="FP"&it_b_pay="30m"&notify_url="https://test-o2-hk.qfapi.com/trade/alipay_hk/v1/notify"&out_trade_no="20210527154100020004180921"&partner="2088231067382451"&payment_inst="ALIPAYHK"&payment_type="1"&product_code="NEW_WAP_OVERSEAS_SELLER"&return_url="http://www.qfpay.com/"&secondary_merchant_id="1000007081"&secondary_merchant_industry="5941"&secondary_merchant_name="IFlare Hong Kong Limited (external) - online"&seller_id="2088231067382451"&service="mobile.securitypay.pay"&subject="goods_name"&total_fee="0.01"&sign="iU1yXUnsCK7rJAu0DoN61arVexbIfo3GLR5jr3QzjkZ29INSPhcA4e%2F2%2BdPrsf5huzQAkxVKP0CTfvaGPMYqNkxmhoaJWUH0ZhgYDgKugMvtweBvRqOX2W0h3A%2F%2FIdJuxeyOAuh7bHiuazSB3ZH%2BEQwRGP%2Bkk8Jpha930gHwPtw%3D"&sign_type="RSA"
+
 ```
 
 |Parameter name | Parameter code  |Mandatory | Parameter type | Description |
